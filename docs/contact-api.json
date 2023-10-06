@@ -7,7 +7,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost:8080"
+            "url": "http://localhost:8000"
         }
     ],
     "paths": {
@@ -45,7 +45,7 @@
                     }
                 },
                 "responses": {
-                    "200": {
+                    "201": {
                         "description": "Success create contact",
                         "content": {
                             "application/json": {
@@ -71,6 +71,9 @@
                                                     "type": "string"
                                                 }
                                             }
+                                        },
+                                        "errors": {
+                                            "type": "object"
                                         }
                                     }
                                 }
@@ -159,6 +162,10 @@
                     {
                         "name": "Authorization",
                         "in": "header"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path"
                     }
                 ],
                 "requestBody": {
@@ -187,54 +194,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Update contact",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "properties": {
-                                                "id": {
-                                                    "type": "number"
-                                                },
-                                                "first_name": {
-                                                    "type": "string"
-                                                },
-                                                "last_name": {
-                                                    "type": "string"
-                                                },
-                                                "email": {
-                                                    "type": "string"
-                                                },
-                                                "phone": {
-                                                    "type": "string"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "get": {
-                "description": "Get contact",
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header"
-                    },
-                    {
-                        "name": "id",
-                        "in": "path"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success get content",
+                        "description": "Success update contact",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -260,7 +220,57 @@
                                                 }
                                             }
                                         },
-                                        "error": {
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Get contact",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get contact",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "first_name": {
+                                                    "type": "string"
+                                                },
+                                                "last_name": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "phone": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "errors": {
                                             "type": "object"
                                         }
                                     }
@@ -284,16 +294,16 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Success delete content",
+                        "description": "Success delete contact",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "type": "string"
+                                            "type": "boolean"
                                         },
-                                        "error": {
+                                        "errors": {
                                             "type": "object"
                                         }
                                     }

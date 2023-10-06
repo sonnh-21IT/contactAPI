@@ -7,7 +7,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost:8080"
+            "url": "http://localhost:8000"
         }
     ],
     "paths": {
@@ -15,23 +15,24 @@
             "post": {
                 "description": "Register new user",
                 "requestBody": {
-                    "description": "",
                     "content": {
                         "application/json": {
                             "examples": {
                                 "khannedy": {
-                                    "description": "Login user khannedy"
-                                },
-                                "value": {
-                                    "username": "khannedy",
-                                    "password": "rahasia",
-                                    "name": "Eko Kurniawan Khannedy"
+                                    "description": "Register user khannedy",
+                                    "value": {
+                                        "username": "khannedy",
+                                        "password": "rahasia",
+                                        "name": "Eko Kurniawan Khannedy"
+                                    }
                                 }
                             },
                             "schema": {
                                 "type": "object",
                                 "required": [
-                                    "name","password","username"
+                                    "name",
+                                    "password",
+                                    "username"
                                 ],
                                 "properties": {
                                     "username": {
@@ -176,10 +177,12 @@
         "/api/users/current": {
             "get": {
                 "description": "Get current user",
-                "parameters": [{
-                    "name": "Authorization",
-                    "in": "header"
-                }],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Success get current user",
@@ -214,10 +217,12 @@
             },
             "patch": {
                 "description": "Update current user",
-                "parameters": [{
-                    "name": "Authorization",
-                    "in": "header"
-                }],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    }
+                ],
                 "requestBody": {
                     "description": "Update current user",
                     "content": {
@@ -272,10 +277,12 @@
         "/api/users/logout": {
             "delete": {
                 "description": "Logout current user",
-                "parameters": [{
-                    "name": "Authorization",
-                    "in": "header"
-                }],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Success logout user",

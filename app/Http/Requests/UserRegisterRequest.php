@@ -24,15 +24,16 @@ class UserRegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username'=>['required','max:100'],
-            'password'=>['required','max:100'],
-            'name'=>['required','max:100'],
+            'username' => ['required', 'max:100'],
+            'password' => ['required', 'max:100'],
+            'name' => ['required', 'max:100'],
         ];
     }
+
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response([
             "errors" => $validator->getMessageBag()
-        ],400));
+        ], 400));
     }
 }

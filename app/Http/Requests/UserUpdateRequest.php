@@ -13,7 +13,7 @@ class UserUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->user()!=null;
+        return $this->user() != null;
     }
 
     /**
@@ -28,10 +28,11 @@ class UserUpdateRequest extends FormRequest
             'password' => ['nullable', 'max:100']
         ];
     }
+
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response([
             "errors" => $validator->getMessageBag()
-        ],400));
+        ], 400));
     }
 }

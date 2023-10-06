@@ -7,7 +7,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost:8080"
+            "url": "http://localhost:8000"
         }
     ],
     "paths": {
@@ -27,23 +27,23 @@
                 "requestBody": {
                     "description": "Create new address",
                     "content": {
-                        "application/json": {
+                        "application/json" : {
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "street": {
+                                    "street" : {
                                         "type": "string"
                                     },
-                                    "city": {
+                                    "city" : {
                                         "type": "string"
                                     },
-                                    "province": {
+                                    "province" : {
                                         "type": "string"
                                     },
-                                    "country": {
+                                    "country" : {
                                         "type": "string"
                                     },
-                                    "postal_code": {
+                                    "postal_code" : {
                                         "type": "string"
                                     }
                                 }
@@ -55,34 +55,34 @@
                     "201": {
                         "description": "Success create address",
                         "content": {
-                            "application/json": {
+                            "application/json" : {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "data": {
+                                        "data" : {
                                             "type": "object",
                                             "properties": {
-                                                "id": {
+                                                "id" : {
                                                     "type": "number"
                                                 },
-                                                "street": {
+                                                "street" : {
                                                     "type": "string"
                                                 },
-                                                "city": {
+                                                "city" : {
                                                     "type": "string"
                                                 },
-                                                "province": {
+                                                "province" : {
                                                     "type": "string"
                                                 },
-                                                "country": {
+                                                "country" : {
                                                     "type": "string"
                                                 },
-                                                "postal_code": {
+                                                "postal_code" : {
                                                     "type": "string"
                                                 }
                                             }
                                         },
-                                        "errors": {
+                                        "errors" : {
                                             "type": "object"
                                         }
                                     }
@@ -94,11 +94,21 @@
             },
             "get": {
                 "description": "Get list addresses",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "idContact",
+                        "in": "path"
+                    }
+                ],
                 "responses": {
-                    "200": {
-                        "description": "List addressed",
+                    "200" : {
+                        "description": "List addresses",
                         "content": {
-                            "application/json": {
+                            "application/json" : {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -107,28 +117,28 @@
                                             "items": {
                                                 "type": "object",
                                                 "properties": {
-                                                    "id": {
+                                                    "id" : {
                                                         "type": "number"
                                                     },
-                                                    "street": {
+                                                    "street" : {
                                                         "type": "string"
                                                     },
-                                                    "city": {
+                                                    "city" : {
                                                         "type": "string"
                                                     },
-                                                    "province": {
+                                                    "province" : {
                                                         "type": "string"
                                                     },
-                                                    "country": {
+                                                    "country" : {
                                                         "type": "string"
                                                     },
-                                                    "postal_code": {
+                                                    "postal_code" : {
                                                         "type": "string"
                                                     }
                                                 }
                                             }
                                         },
-                                        "errors": {
+                                        "errors" : {
                                             "type": "object"
                                         }
                                     }
@@ -157,37 +167,37 @@
                     }
                 ],
                 "responses": {
-                    "201": {
-                        "description": "Success get address",
+                    "200": {
+                        "description": "Success create address",
                         "content": {
-                            "application/json": {
+                            "application/json" : {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "data": {
+                                        "data" : {
                                             "type": "object",
                                             "properties": {
-                                                "id": {
+                                                "id" : {
                                                     "type": "number"
                                                 },
-                                                "street": {
+                                                "street" : {
                                                     "type": "string"
                                                 },
-                                                "city": {
+                                                "city" : {
                                                     "type": "string"
                                                 },
-                                                "province": {
+                                                "province" : {
                                                     "type": "string"
                                                 },
-                                                "country": {
+                                                "country" : {
                                                     "type": "string"
                                                 },
-                                                "postal_code": {
+                                                "postal_code" : {
                                                     "type": "string"
                                                 }
                                             }
                                         },
-                                        "errors": {
+                                        "errors" : {
                                             "type": "object"
                                         }
                                     }
@@ -216,23 +226,23 @@
                 "requestBody": {
                     "description": "Update existing contact address",
                     "content": {
-                        "application/json": {
+                        "application/json" : {
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "street": {
+                                    "street" : {
                                         "type": "string"
                                     },
-                                    "city": {
+                                    "city" : {
                                         "type": "string"
                                     },
-                                    "province": {
+                                    "province" : {
                                         "type": "string"
                                     },
-                                    "country": {
+                                    "country" : {
                                         "type": "string"
                                     },
-                                    "postal_code": {
+                                    "postal_code" : {
                                         "type": "string"
                                     }
                                 }
@@ -242,36 +252,36 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success update address",
+                        "description": "Success create address",
                         "content": {
-                            "application/json": {
+                            "application/json" : {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "data": {
+                                        "data" : {
                                             "type": "object",
                                             "properties": {
-                                                "id": {
+                                                "id" : {
                                                     "type": "number"
                                                 },
-                                                "street": {
+                                                "street" : {
                                                     "type": "string"
                                                 },
-                                                "city": {
+                                                "city" : {
                                                     "type": "string"
                                                 },
-                                                "province": {
+                                                "province" : {
                                                     "type": "string"
                                                 },
-                                                "country": {
+                                                "country" : {
                                                     "type": "string"
                                                 },
-                                                "postal_code": {
+                                                "postal_code" : {
                                                     "type": "string"
                                                 }
                                             }
                                         },
-                                        "errors": {
+                                        "errors" : {
                                             "type": "object"
                                         }
                                     }
@@ -298,17 +308,17 @@
                     }
                 ],
                 "responses": {
-                    "200": {
+                    "200" : {
                         "description": "Success delete",
                         "content": {
-                            "application/json": {
+                            "application/json" : {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "data": {
+                                        "data" : {
                                             "type": "boolean"
                                         },
-                                        "errors": {
+                                        "errors" : {
                                             "type": "object"
                                         }
                                     }

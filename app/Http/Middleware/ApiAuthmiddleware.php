@@ -8,31 +8,34 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class ApiAuthmiddleware
+class ApiAuthMiddleware
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $token = $request->header("Authorization");
-        $authenticate=true;
-        if (!$token){
+        $token = $request->header('Authorization');
+        $authenticate = true;
+
+        if (!$token) {
             $authenticate = false;
         }
-        $user = User::where('token',$token)->first();
-        if (!$user){
+
+        $user = User::where('token', $token)->first();
+        if (!$user) {
             $authenticate = false;
-        }else{
+        } else {
             Auth::login($user);
         }
-        if ($authenticate){
+
+        if ($authenticate) {
             return $next($request);
-        }else{
+        } else {
             return response()->json([
-                "errors"=>[
+                "errors" => [
                     "message" => [
                         "unauthorized"
                     ]
